@@ -1,9 +1,9 @@
 <template>
     <div class="limiter">
         <div class="container-login100" style="background-image: url('img/bg-01.jpg');">
-            <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
+            <div class="wrap-login100 p-l-80 p-r-80 p-t-2 p-b-16">
                 <div class="back"><nuxt-link to="/"><i class="bi bi-arrow-left">Back to Home</i></nuxt-link></div>
-                <form class="login100-form validate-form flex-sb flex-w" method="post" @submit.prevent="submitForm()">
+                <form class="login100-form validate-form flex-sb flex-w"  @submit.prevent="submitForm()">
                     <span class="login100-form-title p-b-20">
                         Sign Up With
                     </span>
@@ -70,7 +70,8 @@
     </div>
 </template>
 
-<script>
+<script >
+
 export default {
     middleware: 'auth',
     auth: 'guest',

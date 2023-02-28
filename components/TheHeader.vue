@@ -31,8 +31,13 @@
           <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><NuxtLink to="/login" class="nav-link scrollto"><i class="bi bi-person"></i></NuxtLink></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="nav-link scrollto" v-bind:class = "($auth.loggedIn)?'dropdown':''" >
+            <NuxtLink to="/login" class="nav-link scrollto"><i class="bi bi-person"></i></NuxtLink>
+            <ul v-if="$auth.loggedIn">
+              <nuxt-link to="/user/logout" >Logout</nuxt-link>
+            </ul>
+          </li>
+          <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
                 <li><a href="#">Drop Down 1</a></li>
                 <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
@@ -48,7 +53,7 @@
                 <li><a href="#">Drop Down 3</a></li>
                 <li><a href="#">Drop Down 4</a></li>
               </ul>
-            </li>
+          </li> -->
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

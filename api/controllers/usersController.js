@@ -8,6 +8,7 @@ const bcrypt = require('bcryptjs')
 // Register
 module.exports.register = [
   // validations rules
+
   validator.body('username', 'Please enter Full Name').isLength({ min: 1 }),
   validator.body('email', 'Please enter Email').isLength({ min: 1 }),
   validator.body('email').custom(value => {
@@ -18,13 +19,7 @@ module.exports.register = [
     })
   }),
   validator.body('password', 'Please enter Password').isLength({ min: 1 }),
-    validator.body('confirmPassword')
-    .custom((value, { req }) => {
-      if (value !== req.body.password) {
-        throw new Error('Confirm password does not match password');
-      }
-      return true;
-    }),
+  
   function(req, res) {
     // throw validation errors
     const errors = validator.validationResult(req);
@@ -59,7 +54,6 @@ module.exports.register = [
     })
   }
 ]
-
 
 // Login
 module.exports.login = [

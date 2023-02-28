@@ -1,9 +1,10 @@
 export default {
   ssr:true,
   dev: true,
+  mode: 'universal',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'TEST',
+    title: 'AgadirIt',
     htmlAttrs: {
       lang: 'en'
     },
@@ -74,14 +75,14 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
-     '@nuxtjs/axios',
+    // Doc: https://axios.nuxtjs.org/usage
+    '@nuxtjs/axios',
     '@nuxtjs/auth',
   ],
    axios: {
-    // proxyHeaders: false
   },
    // Server Middleware
-  serverMiddleware: [
+  serverMiddleware:  [
     '~/api/index.js'
   ],
    // use these settings to use custom css
@@ -92,6 +93,7 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     vendor: ["aos"],
-    
+    extend (config, ctx) {
+    }
   }
 }
